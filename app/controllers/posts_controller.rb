@@ -13,7 +13,11 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    if params[:back]
+      @post = Post.new(post_params)
+	else
+	  @post = Post.new
+	end
   end
 
   def edit
@@ -27,6 +31,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
+	    PostMailer.post_mail(@post).deliver
         format.html { redirect_to @post, notice: '投稿ができました' }
         format.json { render :show, status: :created, location: @post }
       else
@@ -55,6 +60,14 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def ensure_current_user
+    @post = Post.find_by(id:params[:id])
+	  if @post.user_id != @current_user.id
+	    flash[:notice] = "できませんでした"
+		redirect_to("/posts/index")
+	  end
+	end
 
   private
     def set_post
