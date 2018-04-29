@@ -1,0 +1,15 @@
+current directory: /Users/kazoo0330/workspace/diver/iclone/iclone/vendor/bundle/gems/bindex-0.5.0/ext/bindex
+/Users/kazoo0330/.rbenv/versions/2.4.1/bin/ruby -r ./siteconf20180428-77905-1sunv3p.rb extconf.rb
+creating Makefile
+
+current directory: /Users/kazoo0330/workspace/diver/iclone/iclone/vendor/bundle/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" clean
+
+current directory: /Users/kazoo0330/workspace/diver/iclone/iclone/vendor/bundle/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR="
+compiling cruby.c
+linking shared-object bindex/cruby.bundle
+
+current directory: /Users/kazoo0330/workspace/diver/iclone/iclone/vendor/bundle/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20180428-77905-sopxvm/bindex
