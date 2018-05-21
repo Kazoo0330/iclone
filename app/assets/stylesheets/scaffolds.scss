@@ -49,6 +49,7 @@ td {
 div {
   &.field, &.actions {
     margin-bottom: 10px;
+	color: black;
   }
 }
 
@@ -90,5 +91,8 @@ label {
 }
 
 a {
+  color: white;
+}
+.area {
   color: white;
 }

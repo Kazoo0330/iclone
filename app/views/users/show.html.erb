@@ -15,6 +15,6 @@
   <%= image_tag @user.image %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Post', new_post_path %>
-<%= link_to 'favorites', favorites_path(@user) %>
+<button type="button" class="btn btn-warning"><%= link_to 'Edit', edit_user_path(@user) %></button> |
+<button type="button" class="btn btn-primary"><%= link_to 'Post', new_post_path %></button>
+<button type="button" class="btn btn-success"><%= link_to 'favorites', favorites_path(@user) %></button>

@@ -12,27 +12,27 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <p class="area"><%= form.label :name %></p>
     <%= form.text_field :name, id: :user_name %>
   </div>
 
   <div class="field">
-    <%= form.label :email %>
+    <p class="area"><%= form.label :email %></p>
     <%= form.text_field :email, id: :user_email %>
   </div>
 
   <div class="field">
-    <%= form.label :password %>
+    <p class="area"><%= form.label :password %></p>
     <%= form.password_field :password %>
   </div>
 
   <div class="field">
-    <%= form.label :password_confirmation %>
+    <p class="area"><%= form.label :password_confirmation %></p>
 	<%= form.password_field :password_confirmation %>
   </div>
 
   <div class="field">
-    <%= form.label :image %>
+    <p class="area"><%= form.label :image %></p>
     <%= form.file_field :image, id: :user_image %>
 	<%= form.hidden_field :image_cache %>
   </div>

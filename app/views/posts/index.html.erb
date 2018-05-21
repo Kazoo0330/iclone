@@ -18,9 +18,11 @@
         <td><%= image_tag post.image %></td>
         <td><%= post.title %></td>
         <td><%= post.content %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><button type="button" class="btn btn-info"><%= link_to 'Show', post %></button></td>
+		<% if post.user_id == current_user.try(:id) %>
+          <td><button type="button" class="btn btn-warning"><%= link_to 'Edit', edit_post_path(post) %></button></td>
+          <td><button type="button" class="btn btn-danger"><%= link_to 'Destroy', post, method: :delete, data: { confirm: '削除しますか?' } %></button></td>
+		<% end %>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Post', new_post_path %>
+<button type="button" class="btn btn-primary"><%= link_to 'New Post', new_post_path %></button>
