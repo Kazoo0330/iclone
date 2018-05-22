@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   resources :posts
   resources :sessions, only: [:new, :create, :destroy]
   resources :favorites, only: [:create, :destroy, :index]
-  mount LetterOpenerWeb::Engine, at: "/letter_opener"
-  if Rails.env.development?
+#  mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  if Rails.env.production?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
   
