@@ -13,25 +13,32 @@
     <div class="jumbotron">
      <div class="container">
        <h1>iClone</h1>
-       <p>Share your moments. Discover what you are actually interested in.</p>
+       <p>Share your moments. Discover what you really are interested in.</p>
        <button type="button" class="btn btn-primary btn-lg" role="button"><%= link_to 'View Posts »', posts_path %></button>
+
 	   <% if logged_in? %>
-         <button type="button" class="btn btn-primary btn-lg" role="button"><%= link_to 'Sign up »', new_user_path %></button>
-		<% else %>
-		  <button type="button" class="btn btn-danger btn-lg" role="button"><%= link_to 'Logout »', session_path(current_user.id), method: :delete %></button>
+	     <button type="button" class="btn btn-success btn-lg" role="button"><%= link_to "User Profile", user_path(current_user.id) %></button>
+		 <button type="button" class="btn btn-danger btn-lg" role="button"><%= link_to 'Logout »', session_path(current_user.id), method: :delete %></button>
+
+		 <% else %>
+		  <button type="button" class="btn btn-primary btn-lg" role="button"><%= link_to "Login", new_session_path %></button>
+		  <button type="button" class="btn btn-primary btn-lg" role="button"><%= link_to 'Sign up »', new_user_path %></button>
 		<% end %>
      </div>
    </div>
   </header>
 
-    <% if logged_in? %>
-	  <%= link_to "User Profile", user_path(current_user.id) %>
-	  <%= link_to "Logout", session_path(current_user.id), method: :delete %>
-	<% else %> 
-	  <%= link_to "Sign up", new_user_path %>
-      <%= link_to "Login", new_session_path %>
-	<% end %>
+    <%# if logged_in? %>
+	  <%#= link_to "User Profile", user_path(current_user.id) %>
+	  <%#= link_to "Logout", session_path(current_user.id), method: :delete %>
+	<%# else %> 
+	  <%#= link_to "Sign up", new_user_path %>
+      <%#= link_to "Login", new_session_path %>
+	<%# end %>
 
+  <div="content">  
     <%= yield %>
+  </div>
+
   </body>
 </html>
