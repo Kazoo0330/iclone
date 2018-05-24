@@ -1,20 +1,24 @@
-<p id="notice"><%= notice %></p>
+<div class="content">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @user.name %>
+  </p>
+  
+  <p>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </p>
+  
+  <p>
+    <strong>Image:</strong>
+    <%= image_tag @user.image %>
+  </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @user.image %>
-</p>
+</div>
 
 <button type="button" class="btn btn-warning"><%= link_to 'Edit', edit_user_path(@user) %></button> |
 <button type="button" class="btn btn-primary"><%= link_to 'Post', new_post_path %></button>
 <button type="button" class="btn btn-success"><%= link_to 'favorites', favorites_path(@user) %></button>
+

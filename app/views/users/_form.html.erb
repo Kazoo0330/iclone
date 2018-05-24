@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+<div class="forms">
   <div class="field">
     <p class="area"><%= form.label :name %></p>
     <%= form.text_field :name, id: :user_name %>
@@ -32,12 +32,15 @@
   </div>
 
   <div class="field">
-    <p class="area"><%= form.label :image %></p>
-    <%= form.file_field :image, id: :user_image %>
-	<%= form.hidden_field :image_cache %>
+    <div class="image_post"> 
+      <p class="area"><%= form.label :image %></p>
+      <%= form.file_field :image, id: :user_image %>
+	  <%= form.hidden_field :image_cache %>
+	</div>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
+</div>
 <% end %>
