@@ -35,6 +35,8 @@ class ImageUploader < CarrierWave::Uploader::Base
    end
 
    process :convert => 'jpg'
+   process :resize_to_limit => [300, 200] 
+ #  画像リサイズ用に追記した。
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
