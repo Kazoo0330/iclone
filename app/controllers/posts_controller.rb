@@ -27,19 +27,25 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 	@post.user_id = current_user.id
 
-	@post.save!
-
-    respond_to do |format|
-      if @post.save
- 	    PostMailer.post_mail(@post).deliver
-        format.html { redirect_to @post, notice: '投稿ができました' }
-        format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
-    end
+	if @post.save
+	  redirect_to post_path(@post.id)
+	else
+	  render 'new'
+	end 
   end
+
+
+#    respond_to do |format|
+#      if @post.save
+# 	    PostMailer.post_mail(@post).deliver
+#        format.html { redirect_to @post, notice: '投稿ができました' }
+    ##    format.json { render :show, status: :created, location: @post }
+#      else
+#        format.html { render :new_post }
+     ##   format.json { render json: @post.errors, status: :unprocessable_entity }
+#      end
+#    end
+#  end
 
   def update
     respond_to do |format|
