@@ -11,6 +11,22 @@ body {
   background-repeat: no-repeat;
 }
 
+
+.button.btn.btn-info {
+	color: white;
+}
+
+
+
+
+h1.subject {
+	color: black;
+}
+
+.introduction {
+	color: black;
+}
+
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -27,12 +43,12 @@ a {
   color: white;
 
   &:visited {
-    color: #666;
+    color: white;
   }
 
   &:hover {
-    color: #fff;
-    background-color: #000;
+    color: white;
+   // background-color: white;
   }
 }
 
@@ -118,7 +134,9 @@ field {
 }
 
 .image_post {
-	text-align: center;
+//	text-align: center;
+	margin-left: 40%;
+	margin-right: 40%;
 }
 
 .content {
@@ -139,3 +157,15 @@ field {
 }
 
 
+#post_image {
+	text-align: center;
+}
+
+input#post_image {
+	margin-left: 40%;
+	margin-right: 40%;
+}
+
+input {
+	color: black;
+}
