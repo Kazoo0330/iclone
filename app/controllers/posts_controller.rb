@@ -28,6 +28,7 @@ class PostsController < ApplicationController
 	@post.user_id = current_user.id
 
 	if @post.save
+	  PostMailer.post_mail(@post).deliver
 	  redirect_to post_path(@post.id)
 	else
 	  render 'new'
