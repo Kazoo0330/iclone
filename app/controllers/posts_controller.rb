@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i(show edit update destroy)
-  before_action :must_login, only: %i(new edit show)
+  before_action :set_post, only: %i[show edit update destroy]
+  before_action :must_login, only: %i[new edit show]
 
   def index
     @posts = Post.all
@@ -74,22 +74,20 @@ class PostsController < ApplicationController
 	    flash[:notice] = "できませんでした"
 		redirect_to("/posts/index")
 	  end
-	end
+  end
 
   private
-    def set_post
-      @post = Post.find(params[:id])
-    end
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
-    def post_params
-      params.require(:post).permit(:image,:image_cache, :title, :content, :user_id, :post_id)
-    end
+  def post_params
+    params.requir(:post).permit %i[image image_cache title content user_id post_id]
+  end
 
-	def must_login
-	  unless !current_user.nil?
-	    redirect_to posts_path, notice: "ログインしてください"
-	  end
+  def must_login
+	unless !current_user.nil?
+	  redirect_to posts_path, notice: "ログインしてください"
 	end
-
-
+  end
 end
