@@ -1,5 +1,4 @@
 class FavoritesController < ApplicationController
-
   def index
     @favorite_posts = current_user.favorite_posts
   end
@@ -13,5 +12,4 @@ class FavoritesController < ApplicationController
     favorite = current_user.favorites.find_by(post_id: params[:post_id]).destroy
 	redirect_to post_url, notice: "#{favorite.post.user.name}さんの投稿をお気に入り解除しました"
   end
-
 end
