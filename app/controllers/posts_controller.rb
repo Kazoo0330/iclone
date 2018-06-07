@@ -35,7 +35,6 @@ class PostsController < ApplicationController
 	end 
   end
 
-
 #    respond_to do |format|
 #      if @post.save
 # 	    PostMailer.post_mail(@post).deliver
