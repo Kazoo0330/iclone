@@ -68,7 +68,7 @@ class PostsController < ApplicationController
   end
 
   def ensure_current_user
-    @post = Post.find_by(id:params[:id])
+    @post = Post.find_by(id: params[:id])
 	  if @post.user_id != @current_user.id
 	    flash[:notice] = "できませんでした"
 		redirect_to("/posts/index")
@@ -81,7 +81,9 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.requir(:post).permit %i[image image_cache title content user_id post_id]
+    params.requir(:post).permit %i[
+      image image_cache title content user_id post_id
+    ]
   end
 
   def must_login
