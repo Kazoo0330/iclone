@@ -81,7 +81,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.requir(:post).permit %i[
+    params.require(:post).permit %i[
       image image_cache title content user_id post_id
     ]
   end
