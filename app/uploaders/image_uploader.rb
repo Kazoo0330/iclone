@@ -29,14 +29,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-   version :thumb do
-     process resize_to_limit: [200, 200]
-	 process resize_to_fill: [40, 40, gravity = ::Magick::CenterGravity]
-   end
+  version :thumb do
+    process resize_to_limit: [200, 200]
+	# process resize_to_fill: [40, 40, gravity = ::Magick::CenterGravity]
+  end
 
    process :convert => 'jpg'
    process :resize_to_limit => [300, 200] 
- #  画像リサイズ用に追記した。
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

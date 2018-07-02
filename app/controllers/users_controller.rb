@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-#  before_action :set_user, only: [:show, :edit, :update, :destroy]
+#  before_action :set_user, only: %i[show edit update destroy]
 
   def show
     @user = User.find(params[:id])
@@ -45,7 +45,8 @@ class UsersController < ApplicationController
 #    end
 
   def user_params
-    params.require(:user).permit
-    %i[name email password password_confirmation image image_cache]
+    params.require(:user).permit %i[
+      name email password password_confirmation image image_cache
+    ]
   end
 end
