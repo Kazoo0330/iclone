@@ -20,8 +20,7 @@ class PostsController < ApplicationController
 	end
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @post = Post.new(post_params)
@@ -32,7 +31,7 @@ class PostsController < ApplicationController
 	  redirect_to post_path(@post.id)
 	else
 	  render 'new'
-	end 
+    end
   end
 
 #    respond_to do |format|

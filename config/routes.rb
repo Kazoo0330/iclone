@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'sessions/new'
-  resources :users, only: %i(newcreate show edit update)
+  resources :users, only: %i(new create show edit update)
   resources :posts
   resources :sessions, only: %i(new create destroy)
   resources :favorites, only: %i(create destroy index)
