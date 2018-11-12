@@ -17,7 +17,7 @@ class PostsController < ApplicationController
       @post = Post.new(post_params)
 	else
 	  @post = Post.new
-	end
+    end
   end
 
   def edit; end
