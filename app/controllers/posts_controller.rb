@@ -10,6 +10,8 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
 	@user = User.find_by(id: @post.user_id)
 	@favorite = current_user.favorites.find_by(post_id: @post.id)
+    @comments = @post.comments
+    @comment = @post.comments.build
   end
 
   def new
@@ -26,11 +28,15 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 	@post.user_id = current_user.id
 
-	if @post.save
-	  PostMailer.post_mail(@post).deliver
-	  redirect_to post_path(@post.id)
-	else
-	  render 'new'
+    respond_to do |format|
+      if @post.save
+        PostMailer.post_mail(@post).deliver
+        format.html { redirect_to post_path(@post.id) }
+        format.js { render :index }
+      else
+        format.html { render 'new' }
+        format.js { render :index }
+      end
     end
   end
 
